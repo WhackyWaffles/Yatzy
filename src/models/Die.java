@@ -3,7 +3,7 @@ package models;
 import java.util.Random;
 
 public class Die {
-    private int eyes = 0;
+    private int eyes;
     private final Random random = new Random();
 
     /**
@@ -18,6 +18,11 @@ public class Die {
     }
 
     public void roll() {
-        //TODO: implement roll method.
+        eyes = (int) (random.nextDouble() * 6 + 1);
+        //DONE: implement roll method.
+    }
+
+    public int getEyes() {
+        return eyes;
     }
 }
