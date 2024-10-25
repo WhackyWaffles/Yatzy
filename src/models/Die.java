@@ -14,11 +14,12 @@ public class Die {
         this.eyes = eyes;
     }
 
+    //Default constructor
     public Die() {
     }
 
     public void roll() {
-        eyes = (int) (random.nextDouble() * 6 + 1);
+        eyes = random.nextInt(6) + 1;
         //DONE: implement roll method.
     }
 

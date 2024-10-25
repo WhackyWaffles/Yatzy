@@ -6,13 +6,15 @@ import java.lang.reflect.Constructor;
  * Used to calculate the score of throws with 5 dice
  */
 public class YatzyResultCalculator {
-    private static int[] eyesCounter = new int[6];
+   private Die[] dice;
 
     /**
      *
      * @param dice
      */
     public YatzyResultCalculator(Die[] dice) {
+        this.dice = dice;
+        //done tror jeg
         //TODO: implement YatzyResultCalculator constructor.
     }
 
@@ -22,17 +24,14 @@ public class YatzyResultCalculator {
      * @return the score for specified eye value
      */
     public int upperSectionScore(int eyes) {
+        int score = 0;
+        for (Die die : dice) {
+           if(die.getEyes() == eyes) {
 
-
-        for (int i = 0; i < getDice().length; i++) {
-            eyesCounter[getDice[i] - 1]++;
-
-            for (int j = 0; j < 6; j++) {
-                System.out.printf("\n%27s %10d", (j + 1) + "'s rolled: ", eyesCounter[j]);
-            }
-
+           }
+        }
         //TODO: Implement upperSectionScore method.
-        return 0;
+        return score;
     }
 
     public int onePairScore() {
