@@ -31,11 +31,11 @@ public class Gui extends Application {
         gridPane.setHgap(10); // Horisontal afstand mellem celler
         gridPane.setVgap(5); // Vertikal afstand mellem celler
 
-        // Opret GridPane
+        // Opret GridPane2
         GridPane gridPane2 = new GridPane();
         // Tilføj padding og afstand mellem celler
         gridPane2.setPadding(new Insets(10)); // Padding omkring hele GridPane
-        gridPane2.setHgap(10); // Horisontal afstand mellem celler
+        gridPane2.setHgap(40); // Horisontal afstand mellem celler
         gridPane2.setVgap(5); // Vertikal afstand mellem celler
         
         // Opret rektangler (Ved ikke, hvorfor de ikke kan genbruges)
@@ -139,14 +139,14 @@ public class Gui extends Application {
 
         // Opret labels til resultater i hovedet
         Label label3 = new Label("1'ere");
-        label3.setPrefWidth(100);
+        label3.setPrefWidth(150);
         Label label4 = new Label("2'ere");
         Label label5 = new Label("3'ere");
         Label label6 = new Label("4'ere");
         Label label7 = new Label("5'ere");
         Label label8 = new Label("6'ere");
         Label label9 = new Label("Sum");
-        label9.setPrefWidth(100);
+        label9.setPrefWidth(150);
         Label label10 = new Label("Bonus");
         // Opret labels til kombinationer
         Label label11 = new Label("Et par");
