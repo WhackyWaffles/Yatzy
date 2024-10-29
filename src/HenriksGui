@@ -9,11 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
-import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class Gui extends Application {
@@ -21,8 +17,8 @@ public class Gui extends Application {
     public void start(Stage primaryStage) {
 
         // Opret VBox som hovedcontainer
-         VBox mainVBox = new VBox(10);
-         mainVBox.setPadding(new Insets(10));
+        VBox mainVBox = new VBox(10);
+        mainVBox.setPadding(new Insets(10));
 
         // Opret GridPane
         GridPane gridPane = new GridPane();
@@ -33,79 +29,39 @@ public class Gui extends Application {
 
         // Opret GridPane2
         GridPane gridPane2 = new GridPane();
-        // Tilføj padding og afstand mellem celler
         gridPane2.setPadding(new Insets(10)); // Padding omkring hele GridPane
-        gridPane2.setHgap(40); // Horisontal afstand mellem celler
+        gridPane2.setHgap(10); // Horisontal afstand mellem celler
         gridPane2.setVgap(5); // Vertikal afstand mellem celler
-        
-        // Opret rektangler (Ved ikke, hvorfor de ikke kan genbruges)
-        Rectangle rectangle1 = new Rectangle(50, 50);
-        rectangle1.setStroke(Color.GREY);
-        rectangle1.setFill(Color.WHITE);
-        rectangle1.setArcWidth(10);
-        rectangle1.setArcHeight(10);
 
-        Rectangle rectangle2 = new Rectangle(50, 50);
-        rectangle2.setStroke(Color.GREY);
-        rectangle2.setFill(Color.WHITE);
-        rectangle2.setArcWidth(10);
-        rectangle2.setArcHeight(10);
+        String[] terningVærdier = {"tern1", "tern2", "tern3", "tern4", "tern5"};
 
-        Rectangle rectangle3 = new Rectangle(50, 50);
-        rectangle3.setStroke(Color.GREY);
-        rectangle3.setFill(Color.WHITE);
-        rectangle3.setArcWidth(10);
-        rectangle3.setArcHeight(10);
+        HBox terningHBox = new HBox(10);
 
-        Rectangle rectangle4 = new Rectangle(50, 50);
-        rectangle4.setStroke(Color.GREY);
-        rectangle4.setFill(Color.WHITE);
-        rectangle4.setArcWidth(10);
-        rectangle4.setArcHeight(10);
+        // Opret labels til at illudere terninger
+        for (String værdi: terningVærdier) {
+            Label lblTerning = new Label(værdi);
+            lblTerning.setPrefSize(60, 60);
+            lblTerning.setStyle("-fx-border-color: grey; -fx-border-width: 1; -fx-border-radius: 10; -fx-alignment:center;");
 
-        Rectangle rectangle5 = new Rectangle(50, 50);
-        rectangle5.setStroke(Color.GREY);
-        rectangle5.setFill(Color.WHITE);
-        rectangle5.setArcWidth(10);
-        rectangle5.setArcHeight(10);
+            terningHBox.getChildren().add(lblTerning);
+        }
 
-        Rectangle rectangle6 = new Rectangle(50, 50);
-        rectangle6.setStroke(Color.GREY);
-        rectangle6.setFill(Color.WHITE);
-        rectangle6.setArcWidth(10);
-        rectangle6.setArcHeight(10);
+        gridPane.add(terningHBox, 0, 0, 5, 1);
 
-        // Opret tekstelementer (skal senere vise øjne på terninger)
-        Text text1 = new Text("1");
-        Text text2 = new Text("2");
-        Text text3 = new Text("3");
-        Text text4 = new Text("4");
-        Text text5 = new Text("5");
-        Text text6 = new Text("6");
 
-        // Opret stackPanes
-        StackPane stackPane1 = new StackPane();
-        StackPane stackPane2 = new StackPane();
-        StackPane stackPane3 = new StackPane();
-        StackPane stackPane4 = new StackPane();
-        StackPane stackPane5 = new StackPane();
-        StackPane stackPane6 = new StackPane();
+        // Opret array til checkbokse
+        CheckBox[] checkBoxes = new CheckBox[5];
 
-        // Aligne rektangler og tekst i stackPanes
-        stackPane1.getChildren().addAll(rectangle1, text1);
-        stackPane2.getChildren().addAll(rectangle2, text2);
-        stackPane3.getChildren().addAll(rectangle3, text3);
-        stackPane4.getChildren().addAll(rectangle4, text4);
-        stackPane5.getChildren().addAll(rectangle5, text5);
-        stackPane6.getChildren().addAll(rectangle6, text6);
+        // Opret HBox til at holde checkbokse
+        HBox checkBoxHBox = new HBox(23);
 
-        // Opret prøvecheckboxe
-        CheckBox checkBox1 = new CheckBox("Hold");
-        CheckBox checkBox2 = new CheckBox("Hold");
-        CheckBox checkBox3 = new CheckBox("Hold");
-        CheckBox checkBox4 = new CheckBox("Hold");
-        CheckBox checkBox5 = new CheckBox("Hold");
-        CheckBox checkBox6 = new CheckBox("Hold");
+        // For-løkke til at oprette checkbokse
+        for (int i = 0; i < checkBoxes.length; i++) {
+            checkBoxes[i] = new CheckBox("Hold");
+            checkBoxHBox.getChildren().add(checkBoxes[i]);
+        }
+        // Tilføj til anden række
+        gridPane.add(checkBoxHBox, 0, 1, 5, 1);
 
         // Opret label1
         Label label1 = new Label("Antal kast tilbage:");
@@ -116,26 +72,12 @@ public class Gui extends Application {
         // Opret Button
         Button btnKastTerninger = new Button("Kast terningerne");
 
-        // Tilføj til første række
-        gridPane.add(stackPane1, 0, 0, 1, 1);
-        gridPane.add(stackPane2, 1, 0, 1, 1);
-        gridPane.add(stackPane3, 2, 0, 1, 1);
-        gridPane.add(stackPane4, 3, 0, 1, 1);
-        gridPane.add(stackPane5, 4, 0, 1, 1);
-        gridPane.add(stackPane6, 5, 0, 1, 1);
-        // Tilføj til anden række
-        gridPane.add(checkBox1, 0, 1, 1, 1);
-        gridPane.add(checkBox2, 1, 1, 1, 1);
-        gridPane.add(checkBox3, 2, 1, 1, 1);
-        gridPane.add(checkBox4, 3, 1, 1, 1);
-        gridPane.add(checkBox5, 4, 1, 1, 1);
-        gridPane.add(checkBox6, 5, 1, 1, 1);
-        // tilføj til tredje række
-        gridPane.add(label1, 0, 2, 2, 1); // Tilføj til tredje række
-        gridPane.add(label2, 2, 2, 2, 1);
-        gridPane.add(btnKastTerninger, 4, 2, 2, 1);
+        // Opret HBox
+        HBox blandetBox = new HBox(54);
+        blandetBox.getChildren().addAll(label1, label2, btnKastTerninger);
 
-        // Opret ny ramme til labels og textfields
+        // tilføj til tredje række
+        gridPane.add(blandetBox, 0,2,5,1);
 
         // Opret labels til resultater i hovedet
         Label label3 = new Label("1'ere");
@@ -222,24 +164,20 @@ public class Gui extends Application {
         gridPane2.add(yatzy, 1, 16, 1, 1);
         gridPane2.add(total, 3, 17, 1, 1);
 
-        VBox frameVBox = new VBox(10);
+        VBox frameVBox = new VBox(0);
         frameVBox.getChildren().add(gridPane);
         frameVBox.setStyle("-fx-border-color: black; -fx-border-width: 1");
 
-        VBox labelVBox = new VBox(10);
+        VBox labelVBox = new VBox(0);
         labelVBox.getChildren().add(gridPane2);
         labelVBox.setStyle("-fx-border-color: black; -fx-border-width: 1");
 
         mainVBox.getChildren().addAll(frameVBox, labelVBox);
-        mainVBox.setStyle("-fx-border-color: black; -fx-border-width: 1");
 
         // Opret scene og vis den
-        Scene scene = new Scene(mainVBox, 400, 715);
+        Scene scene = new Scene(mainVBox, 386, 730);
         primaryStage.setTitle("Yatzy");
         primaryStage.setScene(scene);
         primaryStage.show();
     }
 }
-
-
-
