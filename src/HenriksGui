@@ -105,12 +105,13 @@ public class Gui extends Application {
         Label label20 = new Label("Total");
 
         // Opbygning af tekstfelter med Array
-        TextField[] textFields = new TextField[18];
+        Label[] pointLabels = new Label[18];
 
-        // Opret og konfigurer hver TextField i arrayet
-        for (int i = 0; i < textFields.length; i++) {
-            textFields[i] = new TextField();
-            textFields[i].setPrefWidth(120); // Sæt standardbredde til 70 pixels
+        // Opret og konfigurer hver pointLabel i arrayet
+        for (int i = 0; i < pointLabels.length; i++) {
+            pointLabels[i] = new Label();
+            pointLabels[i].setPrefSize(50, 25);
+            pointLabels[i].setStyle("-fx-border-color: gray; -fx-background-color: white; -fx-border-width: 1; -fx-border-radius: 2;");
         }
 
         // Tilføj labels til hovedet
@@ -122,17 +123,17 @@ public class Gui extends Application {
         gridPane2.add(label8, 0, 5, 1, 1);
         gridPane2.add(label9, 2, 6, 1, 1);
         gridPane2.add(label10, 2, 7, 1, 1);
-        // Tilføj tekstfelter til hovedet
-        gridPane2.add(textFields[0], 1, 0);
-        gridPane2.add(textFields[1], 1, 1);
-        gridPane2.add(textFields[2], 1, 2);
-        gridPane2.add(textFields[3], 1, 3);
-        gridPane2.add(textFields[4], 1, 4);
-        gridPane2.add(textFields[5], 1, 5);
-        gridPane2.add(textFields[6], 3, 6);
-        gridPane2.add(textFields[7], 3, 7);
+        // Tilføj pointLabels til hovedet
+        gridPane2.add(pointLabels[0],1,0);
+        gridPane2.add(pointLabels[1], 1, 1);
+        gridPane2.add(pointLabels[2], 1, 2);
+        gridPane2.add(pointLabels[3], 1, 3);
+        gridPane2.add(pointLabels[4], 1, 4);
+        gridPane2.add(pointLabels[5], 1, 5);
+        gridPane2.add(pointLabels[6], 3, 6);
+        gridPane2.add(pointLabels[7], 3, 7);
 
-        // tilføj labels til kombis
+        // Tilføj labels til kombinationer
         gridPane2.add(label11, 0, 8, 1, 1);
         gridPane2.add(label12, 0, 9, 1, 1);
         gridPane2.add(label13, 0, 10, 1, 1);
@@ -143,17 +144,17 @@ public class Gui extends Application {
         gridPane2.add(label18, 0, 15, 1, 1);
         gridPane2.add(label19, 0, 16, 1, 1);
         gridPane2.add(label20, 2, 17, 1, 1);
-        // Tilføj telstfelter til kombinationer
-        gridPane2.add(textFields[8], 1, 8);
-        gridPane2.add(textFields[9], 1, 9);
-        gridPane2.add(textFields[10], 1, 10);
-        gridPane2.add(textFields[11], 1, 11);
-        gridPane2.add(textFields[12], 1, 12);
-        gridPane2.add(textFields[13], 1, 13);
-        gridPane2.add(textFields[14], 1, 14);
-        gridPane2.add(textFields[15], 1, 15);
-        gridPane2.add(textFields[16], 1, 16);
-        gridPane2.add(textFields[17], 3, 17);
+        // Tilføj pointLabels til kombinationer
+        gridPane2.add(pointLabels[8], 1, 8);
+        gridPane2.add(pointLabels[9], 1, 9);
+        gridPane2.add(pointLabels[10], 1, 10);
+        gridPane2.add(pointLabels[11], 1, 11);
+        gridPane2.add(pointLabels[12], 1, 12);
+        gridPane2.add(pointLabels[13], 1, 13);
+        gridPane2.add(pointLabels[14], 1, 14);
+        gridPane2.add(pointLabels[15], 1, 15);
+        gridPane2.add(pointLabels[16], 1, 16);
+        gridPane2.add(pointLabels[17], 3, 17);
 
         VBox frameVBox = new VBox(0);
         frameVBox.getChildren().add(gridPane);
