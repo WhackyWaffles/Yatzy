@@ -1,4 +1,4 @@
-package MyJavaFX_GuiYatzee;
+package Metodeb;
 
 import javafx.application.Application;
 import javafx.geometry.Insets;
@@ -38,9 +38,9 @@ public class Gui extends Application {
         HBox terningHBox = new HBox(10);
 
         // Opret labels til at illudere terninger
-        for (String værdi: terningVærdier) {
+        for (String værdi : terningVærdier) {
             Label lblTerning = new Label(værdi);
-            lblTerning.setPrefSize(60, 60);
+            lblTerning.setPrefSize(50, 50);
             lblTerning.setStyle("-fx-border-color: grey; -fx-border-width: 1; -fx-border-radius: 10; -fx-alignment:center;");
 
             terningHBox.getChildren().add(lblTerning);
@@ -53,7 +53,7 @@ public class Gui extends Application {
         CheckBox[] checkBoxes = new CheckBox[5];
 
         // Opret HBox til at holde checkbokse
-        HBox checkBoxHBox = new HBox(23);
+        HBox checkBoxHBox = new HBox(13);
 
         // For-løkke til at oprette checkbokse
         for (int i = 0; i < checkBoxes.length; i++) {
@@ -65,19 +65,21 @@ public class Gui extends Application {
 
         // Opret label1
         Label label1 = new Label("Antal kast tilbage:");
+        label1.setPrefWidth(95);
 
         // Opret label2
         Label label2 = new Label("2");
 
         // Opret Button
         Button btnKastTerninger = new Button("Kast terningerne");
+        btnKastTerninger.setPrefWidth(115);
 
         // Opret HBox
-        HBox blandetBox = new HBox(54);
+        HBox blandetBox = new HBox(37);
         blandetBox.getChildren().addAll(label1, label2, btnKastTerninger);
 
         // tilføj til tredje række
-        gridPane.add(blandetBox, 0,2,5,1);
+        gridPane.add(blandetBox, 0, 2, 5, 1);
 
         // Opret labels til resultater i hovedet
         Label label3 = new Label("1'ere");
@@ -102,26 +104,14 @@ public class Gui extends Application {
         Label label19 = new Label("Yatzy");
         Label label20 = new Label("Total");
 
-        // Opret tekstfelter til resultater i hovedet
-        TextField ettere = new TextField();
-        TextField toere = new TextField();
-        TextField treere = new TextField();
-        TextField firere = new TextField();
-        TextField femmere = new TextField();
-        TextField seksere = new TextField();
-        TextField sum = new TextField();
-        TextField bonus = new TextField();
-        // Opret tekstfelter til resultater med kombinationer
-        TextField etpar = new TextField();
-        TextField topar = new TextField();
-        TextField treens = new TextField();
-        TextField fireens = new TextField();
-        TextField denLille = new TextField();
-        TextField denStore = new TextField();
-        TextField fuldtHus = new TextField();
-        TextField chance = new TextField();
-        TextField yatzy = new TextField();
-        TextField total = new TextField();
+        // Opbygning af tekstfelter med Array
+        TextField[] textFields = new TextField[18];
+
+        // Opret og konfigurer hver TextField i arrayet
+        for (int i = 0; i < textFields.length; i++) {
+            textFields[i] = new TextField();
+            textFields[i].setPrefWidth(120); // Sæt standardbredde til 70 pixels
+        }
 
         // Tilføj labels til hovedet
         gridPane2.add(label3, 0, 0, 1, 1);
@@ -133,14 +123,15 @@ public class Gui extends Application {
         gridPane2.add(label9, 2, 6, 1, 1);
         gridPane2.add(label10, 2, 7, 1, 1);
         // Tilføj tekstfelter til hovedet
-        gridPane2.add(ettere, 1, 0, 1, 1);
-        gridPane2.add(toere, 1, 1, 1, 1);
-        gridPane2.add(treere, 1, 2, 1, 1);
-        gridPane2.add(firere, 1, 3, 1, 1);
-        gridPane2.add(femmere, 1, 4, 1, 1);
-        gridPane2.add(seksere, 1, 5, 1, 1);
-        gridPane2.add(sum, 3, 6, 1, 1);
-        gridPane2.add(bonus, 3, 7, 1, 1);
+        gridPane2.add(textFields[0], 1, 0);
+        gridPane2.add(textFields[1], 1, 1);
+        gridPane2.add(textFields[2], 1, 2);
+        gridPane2.add(textFields[3], 1, 3);
+        gridPane2.add(textFields[4], 1, 4);
+        gridPane2.add(textFields[5], 1, 5);
+        gridPane2.add(textFields[6], 3, 6);
+        gridPane2.add(textFields[7], 3, 7);
+
         // tilføj labels til kombis
         gridPane2.add(label11, 0, 8, 1, 1);
         gridPane2.add(label12, 0, 9, 1, 1);
@@ -153,16 +144,16 @@ public class Gui extends Application {
         gridPane2.add(label19, 0, 16, 1, 1);
         gridPane2.add(label20, 2, 17, 1, 1);
         // Tilføj telstfelter til kombinationer
-        gridPane2.add(etpar, 1, 8, 1, 1);
-        gridPane2.add(topar, 1, 9, 1, 1);
-        gridPane2.add(treens, 1, 10, 1, 1);
-        gridPane2.add(fireens, 1, 11, 1, 1);
-        gridPane2.add(denLille, 1, 12, 1, 1);
-        gridPane2.add(denStore, 1, 13, 1, 1);
-        gridPane2.add(fuldtHus, 1, 14, 1, 1);
-        gridPane2.add(chance, 1, 15, 1, 1);
-        gridPane2.add(yatzy, 1, 16, 1, 1);
-        gridPane2.add(total, 3, 17, 1, 1);
+        gridPane2.add(textFields[8], 1, 8);
+        gridPane2.add(textFields[9], 1, 9);
+        gridPane2.add(textFields[10], 1, 10);
+        gridPane2.add(textFields[11], 1, 11);
+        gridPane2.add(textFields[12], 1, 12);
+        gridPane2.add(textFields[13], 1, 13);
+        gridPane2.add(textFields[14], 1, 14);
+        gridPane2.add(textFields[15], 1, 15);
+        gridPane2.add(textFields[16], 1, 16);
+        gridPane2.add(textFields[17], 3, 17);
 
         VBox frameVBox = new VBox(0);
         frameVBox.getChildren().add(gridPane);
@@ -175,7 +166,7 @@ public class Gui extends Application {
         mainVBox.getChildren().addAll(frameVBox, labelVBox);
 
         // Opret scene og vis den
-        Scene scene = new Scene(mainVBox, 386, 730);
+        Scene scene = new Scene(mainVBox, 336, 730);
         primaryStage.setTitle("Yatzy");
         primaryStage.setScene(scene);
         primaryStage.show();
