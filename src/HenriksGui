@@ -6,7 +6,6 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -25,7 +24,7 @@ public class Gui extends Application {
         // Tilføj padding og afstand mellem celler
         gridPane.setPadding(new Insets(10)); // Padding omkring hele GridPane
         gridPane.setHgap(10); // Horisontal afstand mellem celler
-        gridPane.setVgap(5); // Vertikal afstand mellem celler
+        gridPane.setVgap(10); // Vertikal afstand mellem celler
 
         // Opret GridPane2
         GridPane gridPane2 = new GridPane();
@@ -76,36 +75,31 @@ public class Gui extends Application {
         btnKastTerninger.setPrefWidth(108);
 
         // Opret HBox
-        HBox blandetBox = new HBox(37);
+        HBox blandetBox = new HBox(0);
         blandetBox.getChildren().addAll(label1, label2, btnKastTerninger);
 
         // tilføj til tredje række
         gridPane.add(blandetBox, 0, 2, 5, 1);
 
+        // Opret buttons til kombinationer
+        Button[] kombiButtons = new Button[15];
+
+        // Opret og konfigurer hver kombiButton i arrayet
+        for (int i = 0; i < kombiButtons.length; i++) {
+            kombiButtons[i] = new Button();
+            kombiButtons[i].setPrefSize(80, 20);
+            // kombiButtons[i].setStyle("-fx-border-color: gray; -fx-border-width: 1; -fx-border-radius: 2;");
+        }
+
         // Opret labels til resultater i hovedet
         Label label3 = new Label("1'ere");
-        label3.setPrefWidth(150);
-        Label label4 = new Label("2'ere");
-        Label label5 = new Label("3'ere");
-        Label label6 = new Label("4'ere");
-        Label label7 = new Label("5'ere");
-        Label label8 = new Label("6'ere");
+        label3.setPrefWidth(65);
         Label label9 = new Label("Sum");
-        label9.setPrefWidth(150);
+        label9.setPrefWidth(65);
         Label label10 = new Label("Bonus");
-        // Opret labels til kombinationer
-        Label label11 = new Label("Et par");
-        Label label12 = new Label("To par");
-        Label label13 = new Label("3 ens");
-        Label label14 = new Label("4 ens");
-        Label label15 = new Label("Den lille");
-        Label label16 = new Label("Den store");
-        Label label17 = new Label("Fuldt hus");
-        Label label18 = new Label("Chance");
-        Label label19 = new Label("Yatzy");
         Label label20 = new Label("Total");
 
-        // Opbygning af tekstfelter med Array
+        // Opbygning af labelfelter med Array
         Label[] pointLabels = new Label[18];
 
         // Opret og konfigurer hver pointLabel i arrayet
@@ -116,15 +110,21 @@ public class Gui extends Application {
         }
 
         // Tilføj labels til hovedet
-        gridPane2.add(label3, 0, 0, 1, 1);
-        gridPane2.add(label4, 0, 1, 1, 1);
-        gridPane2.add(label5, 0, 2, 1, 1);
-        gridPane2.add(label6, 0, 3, 1, 1);
-        gridPane2.add(label7, 0, 4, 1, 1);
-        gridPane2.add(label8, 0, 5, 1, 1);
+        gridPane2.add(kombiButtons[0], 0, 0, 1, 1);
+        kombiButtons[0].setText("1'ere");
+        gridPane2.add(kombiButtons[1], 0, 1, 1, 1);
+        kombiButtons[1].setText("2'ere");
+        gridPane2.add(kombiButtons[2], 0, 2, 1, 1);
+        kombiButtons[2].setText("3'ere");
+        gridPane2.add(kombiButtons[3], 0, 3, 1, 1);
+        kombiButtons[3].setText("4'ere");
+        gridPane2.add(kombiButtons[4], 0, 4, 1, 1);
+        kombiButtons[4].setText("5'ere");
+        gridPane2.add(kombiButtons[5], 0, 5, 1, 1);
+        kombiButtons[5].setText("6'ere");
         gridPane2.add(label9, 2, 6, 1, 1);
         gridPane2.add(label10, 2, 7, 1, 1);
-        // Tilføj pointLabels til hovedet
+        // Tilføj tekstfelter til hovedet
         gridPane2.add(pointLabels[0],1,0);
         gridPane2.add(pointLabels[1], 1, 1);
         gridPane2.add(pointLabels[2], 1, 2);
@@ -134,18 +134,27 @@ public class Gui extends Application {
         gridPane2.add(pointLabels[6], 3, 6);
         gridPane2.add(pointLabels[7], 3, 7);
 
-        // Tilføj labels til kombinationer
-        gridPane2.add(label11, 0, 8, 1, 1);
-        gridPane2.add(label12, 0, 9, 1, 1);
-        gridPane2.add(label13, 0, 10, 1, 1);
-        gridPane2.add(label14, 0, 11, 1, 1);
-        gridPane2.add(label15, 0, 12, 1, 1);
-        gridPane2.add(label16, 0, 13, 1, 1);
-        gridPane2.add(label17, 0, 14, 1, 1);
-        gridPane2.add(label18, 0, 15, 1, 1);
-        gridPane2.add(label19, 0, 16, 1, 1);
+        // tilføj labels til kombis
+        gridPane2.add(kombiButtons[6], 0, 8, 1, 1);
+        kombiButtons[6].setText("Et par");
+        gridPane2.add(kombiButtons[7], 0, 9, 1, 1);
+        kombiButtons[7].setText("To par");
+        gridPane2.add(kombiButtons[8], 0, 10, 1, 1);
+        kombiButtons[8].setText("Tre ens");
+        gridPane2.add(kombiButtons[9], 0, 11, 1, 1);
+        kombiButtons[9].setText("Fire ens");
+        gridPane2.add(kombiButtons[10], 0, 12, 1, 1);
+        kombiButtons[10].setText("6'ere");
+        gridPane2.add(kombiButtons[11], 0, 13, 1, 1);
+        kombiButtons[11].setText("Fuldt Hus");
+        gridPane2.add(kombiButtons[12], 0, 14, 1, 1);
+        kombiButtons[12].setText("Den lille");
+        gridPane2.add(kombiButtons[13], 0, 15, 1, 1);
+        kombiButtons[13].setText("Den store");
+        gridPane2.add(kombiButtons[14], 0, 16, 1, 1);
+        kombiButtons[14].setText("Yatzy");
         gridPane2.add(label20, 2, 17, 1, 1);
-        // Tilføj pointLabels til kombinationer
+        // Tilføj telstfelter til kombinationer
         gridPane2.add(pointLabels[8], 1, 8);
         gridPane2.add(pointLabels[9], 1, 9);
         gridPane2.add(pointLabels[10], 1, 10);
@@ -168,7 +177,7 @@ public class Gui extends Application {
         mainVBox.getChildren().addAll(frameVBox, labelVBox);
 
         // Opret scene og vis den
-        Scene scene = new Scene(mainVBox, 336, 730);
+        Scene scene = new Scene(mainVBox, 338, 735);
         primaryStage.setTitle("Yatzy");
         primaryStage.setScene(scene);
         primaryStage.show();
