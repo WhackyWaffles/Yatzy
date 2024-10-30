@@ -119,82 +119,95 @@ public class YatsyGui extends Application {
 
 //  ====================================================================================================================
 
-        // Opret labels til resultater i hovedet
-        Label label3 = new Label("1'ere");
-        label3.setPrefWidth(150);
-        Label label4 = new Label("2'ere");
-        Label label5 = new Label("3'ere");
-        Label label6 = new Label("4'ere");
-        Label label7 = new Label("5'ere");
-        Label label8 = new Label("6'ere");
-        Label label9 = new Label("Sum");
-        label9.setPrefWidth(150);
-        Label label10 = new Label("Bonus");
+        // Opret buttons til kombinationer
+        String[] kombiButtonKategorier = {"1'ere", "2'ere", "3'ere", "4'ere", "5'ere", "6'ere", "Et par", "To par", "Tre ens", "Fire ens", "Fuldt hus", "Den lille", "Den store", "Chance", "Yatzy"};
 
-        // Opret labels til kombinationer
-        Label label11 = new Label("Et par");
-        Label label12 = new Label("To par");
-        Label label13 = new Label("3 ens");
-        Label label14 = new Label("4 ens");
-        Label label15 = new Label("Den lille");
-        Label label16 = new Label("Den store");
-        Label label17 = new Label("Fuldt hus");
-        Label label18 = new Label("Chance");
-        Label label19 = new Label("Yatzy");
+        Button[] kombiButtons = new Button[kombiButtonKategorier.length];
+
+        // Loop gennem alle knapperne
+        for (int i = 0; i < kombiButtonKategorier.length; i++) {
+            // Opret knap med navnet fra arrayet
+            Button kombiButton = new Button(kombiButtonKategorier[i]);
+            kombiButton.setPrefSize(80, 20);
+
+            // Gem knappen i kombiButtons arrayet
+            kombiButtons[i] = kombiButton;
+        }
+
+        // Opret labels til resultater i hovedet
+        Label label9 = new Label("Sum");
+        Label label10 = new Label("Bonus");
         Label label20 = new Label("Total");
 
-        // Opbygning af tekstfelter med Array
-        TextField[] textFields = new TextField[18];
+        // Opbygning af labelfelter med Array
+        Label[] pointLabels = new Label[18];
 
-        // Opret og konfigurer hver TextField i array
-        for (int i = 0; i < textFields.length; i++) {
-            textFields[i] = new TextField();
-            textFields[i].setPrefWidth(120); // Sæt standardbredde til 70 pixels
-        }
+            // Opret og konfigurer hver pointLabel i arrayet
+        for (int j = 0; j < pointLabels.length; j++) {
+            pointLabels[j] = new Label();
+            pointLabels[j].setPrefSize(50, 25);
+            pointLabels[j].setStyle("-fx-border-color: gray; -fx-background-color: white; -fx-border-width: 1; -fx-border-radius: 2;");
+            }
 
 //  ====================================================================================================================
 
         // Tilføj labels til hovedet
-        gridPane2.add(label3, 0, 0, 1, 1);
-        gridPane2.add(label4, 0, 1, 1, 1);
-        gridPane2.add(label5, 0, 2, 1, 1);
-        gridPane2.add(label6, 0, 3, 1, 1);
-        gridPane2.add(label7, 0, 4, 1, 1);
-        gridPane2.add(label8, 0, 5, 1, 1);
+        gridPane2.add(kombiButtons[0], 0, 0, 1, 1);
+//        kombiButtons[0].setOnAction(event -> this.addEttere());
+        gridPane2.add(kombiButtons[1], 0, 1, 1, 1);
+//        kombiButtons[1].setOnAction(event -> this.addToere());
+        gridPane2.add(kombiButtons[2], 0, 2, 1, 1);
+//        kombiButtons[2].setOnAction(event -> this.addTreere());
+        gridPane2.add(kombiButtons[3], 0, 3, 1, 1);
+//        kombiButtons[3].setOnAction(event -> this.addFirere());
+        gridPane2.add(kombiButtons[4], 0, 4, 1, 1);
+//        kombiButtons[4].setOnAction(event -> this.addFemmere());
+        gridPane2.add(kombiButtons[5], 0, 5, 1, 1);
+//        kombiButtons[5].setOnAction(event -> this.addSeksere());
         gridPane2.add(label9, 2, 6, 1, 1);
         gridPane2.add(label10, 2, 7, 1, 1);
         // Tilføj tekstfelter til hovedet
-        gridPane2.add(textFields[0], 1, 0);
-        gridPane2.add(textFields[1], 1, 1);
-        gridPane2.add(textFields[2], 1, 2);
-        gridPane2.add(textFields[3], 1, 3);
-        gridPane2.add(textFields[4], 1, 4);
-        gridPane2.add(textFields[5], 1, 5);
-        gridPane2.add(textFields[6], 3, 6);
-        gridPane2.add(textFields[7], 3, 7);
+        gridPane2.add(pointLabels[0],1,0);
+        gridPane2.add(pointLabels[1], 1, 1);
+        gridPane2.add(pointLabels[2], 1, 2);
+        gridPane2.add(pointLabels[3], 1, 3);
+        gridPane2.add(pointLabels[4], 1, 4);
+        gridPane2.add(pointLabels[5], 1, 5);
+        gridPane2.add(pointLabels[6], 3, 6);
+        gridPane2.add(pointLabels[7], 3, 7);
 
-        // tilføj labels til kombinationer
-        gridPane2.add(label11, 0, 8, 1, 1);
-        gridPane2.add(label12, 0, 9, 1, 1);
-        gridPane2.add(label13, 0, 10, 1, 1);
-        gridPane2.add(label14, 0, 11, 1, 1);
-        gridPane2.add(label15, 0, 12, 1, 1);
-        gridPane2.add(label16, 0, 13, 1, 1);
-        gridPane2.add(label17, 0, 14, 1, 1);
-        gridPane2.add(label18, 0, 15, 1, 1);
-        gridPane2.add(label19, 0, 16, 1, 1);
+        // tilføj labels til kombis
+        gridPane2.add(kombiButtons[6], 0, 8, 1, 1);
+        // kombiButtons[6].setOnAction(event -> this.addEtPar());
+        gridPane2.add(kombiButtons[7], 0, 9, 1, 1);
+        // kombiButtons[7].setOnAction(event -> this.addToPar());
+        gridPane2.add(kombiButtons[8], 0, 10, 1, 1);
+        // kombiButtons[8].setOnAction(event -> this.addTreEns());
+        gridPane2.add(kombiButtons[9], 0, 11, 1, 1);
+        // kombiButtons[9].setOnAction(event -> this.addFireEns());
+        gridPane2.add(kombiButtons[10], 0, 12, 1, 1);
+        // kombiButtons[10].setOnAction(event -> this.addFuldtHus());
+        gridPane2.add(kombiButtons[11], 0, 13, 1, 1);
+        // kombiButtons[11].setOnAction(event -> this.addDenLille());
+        gridPane2.add(kombiButtons[12], 0, 14, 1, 1);
+        // kombiButtons[12].setOnAction(event -> this.addDenStore());
+        gridPane2.add(kombiButtons[13], 0, 15, 1, 1);
+        // kombiButtons[13].setOnAction(event -> this.addChance());
+        gridPane2.add(kombiButtons[14], 0, 16, 1, 1);
+        // kombiButtons[14].setOnAction(event -> this.addYatzy());
         gridPane2.add(label20, 2, 17, 1, 1);
-        // Tilføj tekstfelter til kombinationer
-        gridPane2.add(textFields[8], 1, 8);
-        gridPane2.add(textFields[9], 1, 9);
-        gridPane2.add(textFields[10], 1, 10);
-        gridPane2.add(textFields[11], 1, 11);
-        gridPane2.add(textFields[12], 1, 12);
-        gridPane2.add(textFields[13], 1, 13);
-        gridPane2.add(textFields[14], 1, 14);
-        gridPane2.add(textFields[15], 1, 15);
-        gridPane2.add(textFields[16], 1, 16);
-        gridPane2.add(textFields[17], 3, 17);
+
+        // Tilføj pointLabels til kombinationer
+        gridPane2.add(pointLabels[8], 1, 8);
+        gridPane2.add(pointLabels[9], 1, 9);
+        gridPane2.add(pointLabels[10], 1, 10);
+        gridPane2.add(pointLabels[11], 1, 11);
+        gridPane2.add(pointLabels[12], 1, 12);
+        gridPane2.add(pointLabels[13], 1, 13);
+        gridPane2.add(pointLabels[14], 1, 14);
+        gridPane2.add(pointLabels[15], 1, 15);
+        gridPane2.add(pointLabels[16], 1, 16);
+        gridPane2.add(pointLabels[17], 3, 17);
 
 //  ====================================================================================================================
 
