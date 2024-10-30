@@ -240,6 +240,11 @@ public class YatsyGui extends Application {
             terning3.setText(terningVærdier[2]);
             terning4.setText(terningVærdier[3]);
             terning5.setText(terningVærdier[4]);
+            yatzyResultCalculator.upperSectionScore(rafleBæger.getDice()[i].getEyes());
+            for (int j = 0; j < 6; j++) {
+                if (rafleBæger.getDice()[i].getEyes() == rafleBæger.getDice()[i + j].getEyes())
+                    yatzyResultCalculator.onePairScore();
+            }
         }
     }
 
@@ -247,5 +252,4 @@ public class YatsyGui extends Application {
         CheckBox checkBox = (CheckBox) event.getSource();
         int index = (int) checkBox.getUserData();
         rafleBæger.flipHoldDie(index);
-    }
-}
+    }}
