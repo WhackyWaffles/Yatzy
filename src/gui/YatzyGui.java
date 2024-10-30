@@ -99,14 +99,15 @@ public class YatsyGui extends Application {
 
         // Opret label1
         Label label1 = new Label("Antal kast tilbage:");
-        label1.setPrefWidth(95);
+        label1.setPrefWidth(123);
 
         // Opret label2
         Label label2 = new Label("2");
+        label2.setPrefWidth(60);
 
         // Opret Button
         Button btnKastTerninger = new Button("Kast terningerne");
-        btnKastTerninger.setPrefWidth(115);
+        btnKastTerninger.setPrefWidth(108);
         // link button med action-metode
         btnKastTerninger.setOnAction(event -> this.btnKastTerningerAction());
 
@@ -224,7 +225,7 @@ public class YatsyGui extends Application {
 //  ====================================================================================================================
 
         // Opret scene og vis den
-        Scene scene = new Scene(mainVBox, 336, 730);
+        Scene scene = new Scene(mainVBox, 338, 735);
         primaryStage.setTitle("Yatzy");
         primaryStage.setScene(scene);
         primaryStage.show();
