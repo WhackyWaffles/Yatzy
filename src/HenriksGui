@@ -32,20 +32,32 @@ public class Gui extends Application {
         gridPane2.setHgap(10); // Horisontal afstand mellem celler
         gridPane2.setVgap(5); // Vertikal afstand mellem celler
 
-        String[] terningVærdier = {"tern1", "tern2", "tern3", "tern4", "tern5"};
-
-        HBox terningHBox = new HBox(10);
-
         // Opret labels til at illudere terninger
-        for (String værdi : terningVærdier) {
-            Label lblTerning = new Label(værdi);
-            lblTerning.setPrefSize(50, 50);
-            lblTerning.setStyle("-fx-background-color: white; -fx-border-color: grey; -fx-border-width: 1; -fx-border-radius: 10; -fx-alignment:center;");
+        Label lblTerning1 = new Label();
+        lblTerning1.setPrefSize(50, 50);
+        lblTerning1.setStyle("-fx-background-color: white; -fx-border-color: grey; -fx-border-width: 1; -fx-border-radius: 10; -fx-alignment:center;");
 
-            terningHBox.getChildren().add(lblTerning);
-        }
+        Label lblTerning2 = new Label();
+        lblTerning2.setPrefSize(50, 50);
+        lblTerning2.setStyle("-fx-background-color: white; -fx-border-color: grey; -fx-border-width: 1; -fx-border-radius: 10; -fx-alignment:center;");
 
-        gridPane.add(terningHBox, 0, 0, 5, 1);
+        Label lblTerning3 = new Label();
+        lblTerning3.setPrefSize(50, 50);
+        lblTerning3.setStyle("-fx-background-color: white; -fx-border-color: grey; -fx-border-width: 1; -fx-border-radius: 10; -fx-alignment:center;");
+
+        Label lblTerning4 = new Label();
+        lblTerning4.setPrefSize(50, 50);
+        lblTerning4.setStyle("-fx-background-color: white; -fx-border-color: grey; -fx-border-width: 1; -fx-border-radius: 10; -fx-alignment:center;");
+
+        Label lblTerning5 = new Label();
+        lblTerning5.setPrefSize(50, 50);
+        lblTerning5.setStyle("-fx-background-color: white; -fx-border-color: grey; -fx-border-width: 1; -fx-border-radius: 10; -fx-alignment:center;");
+
+        gridPane.add(lblTerning1, 0,0,1,1);
+        gridPane.add(lblTerning2, 1,0,1,1);
+        gridPane.add(lblTerning3, 2,0,1,1);
+        gridPane.add(lblTerning4, 3,0,1,1);
+        gridPane.add(lblTerning5, 4,0,1,1);
 
 
         // Opret array til checkbokse
