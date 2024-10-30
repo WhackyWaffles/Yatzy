@@ -1,30 +1,30 @@
+/* Klassen RaffleCup gør så man kan rulle
+   mere end 1 terning af gangen i dette tilfælde 5
+ */
 package models;
 
 public class RaffleCup {
-    private Die[] dice = new Die[5];
+    private Die[] dice = new Die[5]; /* Array til at holde fem terninger
+                                        og ikke fire, fordi vi angiver hvor mange
+                                        pladser der skal være i arrayet
+                                        og ikke hvad arrayet tæller til 0, 1, 2, 3, 4
+                                      */
 
+    // Default constructor der initialiserer koppen med fem terninger
     public RaffleCup() {
-        //ved ikke om det nødvendigt at lave et nyt objekt RaffleCup
-        RaffleCup raflebaeger = new RaffleCup();
-        for (int i = 0; i <= dice.length; i++) {
-            dice[i] = new Die();
+        for (int index = 0; index < dice.length; index++) {
+            dice[index] = new Die();
         }
-        //DONE: Create an instance of RaffleCup.
     }
 
+    // Kaster alle terningerne i koppen
     public void throwDice() {
-
-        /*
-        for (int i = 0; i <= dice.length; i++) {
-            dice[i].roll();
-        }
-         */
         for (Die die : dice) {
             die.roll();
         }
-        //DONE: implement throwDice method.
     }
 
+    // returnerer arrayet dice for at få terninge resultaterne fra throwDice()
     public Die[] getDice() {
         return dice;
     }
