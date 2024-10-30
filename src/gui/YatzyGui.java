@@ -14,6 +14,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.RaffleCup;
 import models.Die;
+import models.YatzyResultCalculator;
 
 public class YatsyGui extends Application {
     private RaffleCup rafleBæger = new RaffleCup();
@@ -240,10 +241,10 @@ public class YatsyGui extends Application {
             terning3.setText(terningVærdier[2]);
             terning4.setText(terningVærdier[3]);
             terning5.setText(terningVærdier[4]);
-            yatzyResultCalculator.upperSectionScore(rafleBæger.getDice()[i].getEyes());
+            YatzyResultCalculator.upperSectionScore(rafleBæger.getDice()[i].getEyes());
             for (int j = 0; j < 6; j++) {
                 if (rafleBæger.getDice()[i].getEyes() == rafleBæger.getDice()[i + j].getEyes())
-                    yatzyResultCalculator.onePairScore();
+                    YatzyResultCalculator.onePairScore();
             }
         }
     }
