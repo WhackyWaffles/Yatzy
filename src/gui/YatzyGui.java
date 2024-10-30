@@ -15,7 +15,7 @@ import javafx.stage.Stage;
 import models.RaffleCup;
 import models.Die;
 
-public class Gui extends Application {
+public class YatsyGui extends Application {
     private RaffleCup rafleBæger = new RaffleCup();
     private String[] terningVærdier = new String[] {"0", "0", "0", "0", "0"};
     private Label terning1 = new Label(terningVærdier[0]);
