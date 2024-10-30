@@ -28,4 +28,8 @@ public class RaffleCup {
     public Die[] getDice() {
         return dice;
     }
+
+    public void flipHoldDie(int index) {
+        dice[index].flipHoldDie();
+    }
 }
