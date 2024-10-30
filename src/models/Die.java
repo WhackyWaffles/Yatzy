@@ -8,6 +8,7 @@ import java.util.Random;
 public class Die {
     private int eyes = 0; // Gemmer terningens værdi
     private final Random random = new Random(); // Random objekt til at rulle terningen
+    private boolean holdStatus = false;
 
     /**
      * Creates a new Die object, with face set to eyes. Used for test purpose
@@ -24,11 +25,17 @@ public class Die {
 
     // Ruller terningen for at få et tall mellem 1 og 6
     public void roll() {
-        this.eyes = random.nextInt(6) + 1;
+        if (!holdStatus) {
+            this.eyes = random.nextInt(6) + 1;
+        }
     }
 
     // returnerer den rullede værdi
     public int getEyes() {
         return eyes;
+    }
+
+    public void flipHoldDie() {
+        holdStatus = !holdStatus;
     }
 }
