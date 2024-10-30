@@ -41,7 +41,7 @@ public class Gui extends Application {
         for (String værdi : terningVærdier) {
             Label lblTerning = new Label(værdi);
             lblTerning.setPrefSize(50, 50);
-            lblTerning.setStyle("-fx-border-color: grey; -fx-border-width: 1; -fx-border-radius: 10; -fx-alignment:center;");
+            lblTerning.setStyle("-fx-background-color: white; -fx-border-color: grey; -fx-border-width: 1; -fx-border-radius: 10; -fx-alignment:center;");
 
             terningHBox.getChildren().add(lblTerning);
         }
@@ -65,14 +65,15 @@ public class Gui extends Application {
 
         // Opret label1
         Label label1 = new Label("Antal kast tilbage:");
-        label1.setPrefWidth(95);
+        label1.setPrefWidth(123);
 
         // Opret label2
         Label label2 = new Label("2");
+        label2.setPrefWidth(60);
 
         // Opret Button
         Button btnKastTerninger = new Button("Kast terningerne");
-        btnKastTerninger.setPrefWidth(115);
+        btnKastTerninger.setPrefWidth(108);
 
         // Opret HBox
         HBox blandetBox = new HBox(37);
