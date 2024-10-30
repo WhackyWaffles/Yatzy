@@ -153,17 +153,17 @@ public class YatsyGui extends Application {
 
         // Tilføj labels til hovedet
         gridPane2.add(kombiButtons[0], 0, 0, 1, 1);
-//        kombiButtons[0].setOnAction(event -> this.addEttere());
+        // kombiButtons[0].setOnAction(event -> this.addEttere());
         gridPane2.add(kombiButtons[1], 0, 1, 1, 1);
-//        kombiButtons[1].setOnAction(event -> this.addToere());
+        // kombiButtons[1].setOnAction(event -> this.addToere());
         gridPane2.add(kombiButtons[2], 0, 2, 1, 1);
-//        kombiButtons[2].setOnAction(event -> this.addTreere());
+        // kombiButtons[2].setOnAction(event -> this.addTreere());
         gridPane2.add(kombiButtons[3], 0, 3, 1, 1);
-//        kombiButtons[3].setOnAction(event -> this.addFirere());
+        // kombiButtons[3].setOnAction(event -> this.addFirere());
         gridPane2.add(kombiButtons[4], 0, 4, 1, 1);
-//        kombiButtons[4].setOnAction(event -> this.addFemmere());
+        // kombiButtons[4].setOnAction(event -> this.addFemmere());
         gridPane2.add(kombiButtons[5], 0, 5, 1, 1);
-//        kombiButtons[5].setOnAction(event -> this.addSeksere());
+        // kombiButtons[5].setOnAction(event -> this.addSeksere());
         gridPane2.add(label9, 2, 6, 1, 1);
         gridPane2.add(label10, 2, 7, 1, 1);
         // Tilføj tekstfelter til hovedet
