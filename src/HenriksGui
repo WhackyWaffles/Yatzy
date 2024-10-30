@@ -82,46 +82,48 @@ public class Gui extends Application {
         gridPane.add(blandetBox, 0, 2, 5, 1);
 
         // Opret buttons til kombinationer
-        Button[] kombiButtons = new Button[15];
+        String[] kombiButtonKategorier = {"1'ere", "2'ere", "3'ere", "4'ere", "5'ere", "6'ere", "Et par", "To par", "Tre ens", "Fire ens", "Fuldt hus", "Den lille", "Den store", "Chance", "Yatzy"};
 
-        // Opret og konfigurer hver kombiButton i arrayet
-        for (int i = 0; i < kombiButtons.length; i++) {
-            kombiButtons[i] = new Button();
-            kombiButtons[i].setPrefSize(80, 20);
-            // kombiButtons[i].setStyle("-fx-border-color: gray; -fx-border-width: 1; -fx-border-radius: 2;");
+        Button[] kombiButtons = new Button[kombiButtonKategorier.length];
+
+        // Loop gennem alle knapperne
+        for (int i = 0; i < kombiButtonKategorier.length; i++) {
+            // Opret knap med navnet fra arrayet
+            Button kombiButton = new Button(kombiButtonKategorier[i]);
+            kombiButton.setPrefSize(80, 20);
+
+            // Gem knappen i kombiButtons arrayet
+            kombiButtons[i] = kombiButton;
         }
 
         // Opret labels til resultater i hovedet
-        Label label3 = new Label("1'ere");
-        label3.setPrefWidth(65);
         Label label9 = new Label("Sum");
-        label9.setPrefWidth(65);
         Label label10 = new Label("Bonus");
         Label label20 = new Label("Total");
 
-        // Opbygning af labelfelter med Array
-        Label[] pointLabels = new Label[18];
+            // Opbygning af labelfelter med Array
+            Label[] pointLabels = new Label[18];
 
-        // Opret og konfigurer hver pointLabel i arrayet
-        for (int i = 0; i < pointLabels.length; i++) {
-            pointLabels[i] = new Label();
-            pointLabels[i].setPrefSize(50, 25);
-            pointLabels[i].setStyle("-fx-border-color: gray; -fx-background-color: white; -fx-border-width: 1; -fx-border-radius: 2;");
-        }
+            // Opret og konfigurer hver pointLabel i arrayet
+            for (int j = 0; j < pointLabels.length; j++) {
+                pointLabels[j] = new Label();
+                pointLabels[j].setPrefSize(50, 25);
+                pointLabels[j].setStyle("-fx-border-color: gray; -fx-background-color: white; -fx-border-width: 1; -fx-border-radius: 2;");
+            }
 
         // Tilføj labels til hovedet
         gridPane2.add(kombiButtons[0], 0, 0, 1, 1);
-        kombiButtons[0].setText("1'ere");
+//        kombiButtons[0].setOnAction(event -> this.addEttere());
         gridPane2.add(kombiButtons[1], 0, 1, 1, 1);
-        kombiButtons[1].setText("2'ere");
+//        kombiButtons[1].setOnAction(event -> this.addToere());
         gridPane2.add(kombiButtons[2], 0, 2, 1, 1);
-        kombiButtons[2].setText("3'ere");
+//        kombiButtons[2].setOnAction(event -> this.addTreere());
         gridPane2.add(kombiButtons[3], 0, 3, 1, 1);
-        kombiButtons[3].setText("4'ere");
+//        kombiButtons[3].setOnAction(event -> this.addFirere());
         gridPane2.add(kombiButtons[4], 0, 4, 1, 1);
-        kombiButtons[4].setText("5'ere");
+//        kombiButtons[4].setOnAction(event -> this.addFemmere());
         gridPane2.add(kombiButtons[5], 0, 5, 1, 1);
-        kombiButtons[5].setText("6'ere");
+//        kombiButtons[5].setOnAction(event -> this.addSeksere());
         gridPane2.add(label9, 2, 6, 1, 1);
         gridPane2.add(label10, 2, 7, 1, 1);
         // Tilføj tekstfelter til hovedet
@@ -136,25 +138,26 @@ public class Gui extends Application {
 
         // tilføj labels til kombis
         gridPane2.add(kombiButtons[6], 0, 8, 1, 1);
-        kombiButtons[6].setText("Et par");
+//        kombiButtons[6].setOnAction(event -> this.addEtPar());
         gridPane2.add(kombiButtons[7], 0, 9, 1, 1);
-        kombiButtons[7].setText("To par");
+//        kombiButtons[7].setOnAction(event -> this.addToPar());
         gridPane2.add(kombiButtons[8], 0, 10, 1, 1);
-        kombiButtons[8].setText("Tre ens");
+//        kombiButtons[8].setOnAction(event -> this.addTreEns());
         gridPane2.add(kombiButtons[9], 0, 11, 1, 1);
-        kombiButtons[9].setText("Fire ens");
+//        kombiButtons[9].setOnAction(event -> this.addFireEns());
         gridPane2.add(kombiButtons[10], 0, 12, 1, 1);
-        kombiButtons[10].setText("6'ere");
+//        kombiButtons[10].setOnAction(event -> this.addFuldtHus());
         gridPane2.add(kombiButtons[11], 0, 13, 1, 1);
-        kombiButtons[11].setText("Fuldt Hus");
+//        kombiButtons[11].setOnAction(event -> this.addDenLille());
         gridPane2.add(kombiButtons[12], 0, 14, 1, 1);
-        kombiButtons[12].setText("Den lille");
+//        kombiButtons[12].setOnAction(event -> this.addDenStore());
         gridPane2.add(kombiButtons[13], 0, 15, 1, 1);
-        kombiButtons[13].setText("Den store");
+//        kombiButtons[13].setOnAction(event -> this.addChance());
         gridPane2.add(kombiButtons[14], 0, 16, 1, 1);
-        kombiButtons[14].setText("Yatzy");
+//        kombiButtons[14].setOnAction(event -> this.addYatzy());
         gridPane2.add(label20, 2, 17, 1, 1);
-        // Tilføj telstfelter til kombinationer
+
+        // Tilføj pointLabels til kombinationer
         gridPane2.add(pointLabels[8], 1, 8);
         gridPane2.add(pointLabels[9], 1, 9);
         gridPane2.add(pointLabels[10], 1, 10);
