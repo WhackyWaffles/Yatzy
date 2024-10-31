@@ -7,23 +7,22 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import models.RaffleCup;
-import models.Die;
 import models.YatzyResultCalculator;
 
-public class YatsyGui extends Application {
-    private RaffleCup rafleBæger = new RaffleCup();
+public class Gui extends Application {
+    private final RaffleCup rafleBæger = new RaffleCup();
     private String[] terningVærdier = new String[] {"0", "0", "0", "0", "0"};
-    private Label terning1 = new Label(terningVærdier[0]);
-    private Label terning2 = new Label(terningVærdier[1]);
-    private Label terning3 = new Label(terningVærdier[2]);
-    private Label terning4 = new Label(terningVærdier[3]);
-    private Label terning5 = new Label(terningVærdier[4]);
+    private final Label terning1 = new Label(terningVærdier[0]);
+    private final Label terning2 = new Label(terningVærdier[1]);
+    private final Label terning3 = new Label(terningVærdier[2]);
+    private final Label terning4 = new Label(terningVærdier[3]);
+    private final Label terning5 = new Label(terningVærdier[4]);
+    private final YatzyResultCalculator yatzyResultCalculator = new YatzyResultCalculator(rafleBæger.getDice());
 
     @Override
     public void start(Stage primaryStage) {
@@ -241,10 +240,12 @@ public class YatsyGui extends Application {
             terning3.setText(terningVærdier[2]);
             terning4.setText(terningVærdier[3]);
             terning5.setText(terningVærdier[4]);
-            YatzyResultCalculator.upperSectionScore(rafleBæger.getDice()[i].getEyes());
-            for (int j = 0; j < 6; j++) {
-                if (rafleBæger.getDice()[i].getEyes() == rafleBæger.getDice()[i + j].getEyes())
-                    YatzyResultCalculator.onePairScore();
+            yatzyResultCalculator.upperSectionScore(rafleBæger.getDice()[i].getEyes());
+            for (int j = 0; j < rafleBæger.getDice().length; j++) {
+                if (j!=i) {
+                    if (rafleBæger.getDice()[i].getEyes() == rafleBæger.getDice()[j].getEyes())
+                        yatzyResultCalculator.onePairScore();
+                }
             }
         }
     }
@@ -253,4 +254,5 @@ public class YatsyGui extends Application {
         CheckBox checkBox = (CheckBox) event.getSource();
         int index = (int) checkBox.getUserData();
         rafleBæger.flipHoldDie(index);
-    }}
+    }
+}

@@ -36,7 +36,7 @@ public class YatzyResultCalculator {
 
     // beregner scoren for et par
     public int onePairScore() {
-        return oneThreeFourCalculator(2);
+        return twoThreeFourOfKindCalculator(2);
     }
 
     // beregner scoren for to par
@@ -46,12 +46,12 @@ public class YatzyResultCalculator {
 
     // beregner scoren for tre ens
     public int threeOfAKindScore() {
-        return oneThreeFourCalculator(3);
+        return twoThreeFourOfKindCalculator(3);
     }
 
     // beregner scoren for fire ens
     public int fourOfAKindScore() {
-        return oneThreeFourCalculator(4);
+        return twoThreeFourOfKindCalculator(4);
     }
 
     /* beregner scoren for en lille straight det vil sige 1-5
@@ -112,7 +112,7 @@ public class YatzyResultCalculator {
        tag @param count, som er antallet af ens værdier der søges
        @return den højste score for det specifikke antal ens værdider
      */
-    private int oneThreeFourCalculator(int count) {
+    public int twoThreeFourOfKindCalculator(int count) {
         int[] eyesCounts = new int[6];
         for (Die die : dice) {
             int eyeValue = die.getEyes();
@@ -134,7 +134,7 @@ public class YatzyResultCalculator {
     }
 
     // metode til at finde to par @return scoren for to par ellers 0 hvis der ikke er to par
-    private int findTwoPairs() {
+    public int findTwoPairs() {
         int[] eyeCounts = new int[6];
         for (Die die : dice) {
             int eyeValue = die.getEyes();
@@ -161,14 +161,13 @@ public class YatzyResultCalculator {
        tag @param straight, som er et int array med værdier der udgør en straight (1-5 eller 2-6)
        @return true hvis alle værdier for en straight findes ellers retunere den false
      */
-    private boolean checkStraight(int[] straight) {
+    public boolean checkStraight(int[] straight) {
         for (int value : straight) {
             boolean found = false;
             for (Die die : dice) {
                 if (die.getEyes() == value) {
                     found = true;
                     break;
-
                 }
             }
             if (!found) {
@@ -182,7 +181,7 @@ public class YatzyResultCalculator {
        @return et array med antallet af gange en terning værdi blev slået.
        Værdier fra 1 til 6 i dette tilfælde og med 5 fem terninger
      */
-    private int[] countEyes() {
+    public int[] countEyes() {
         int[] eyeCounts = new int[6];
         for (Die die : dice) {
             int eyeValue = die.getEyes();

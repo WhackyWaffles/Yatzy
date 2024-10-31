@@ -4,7 +4,7 @@
 package models;
 
 public class RaffleCup {
-    private Die[] dice = new Die[5]; /* Array til at holde fem terninger
+    private final Die[] dice = new Die[5]; /* Array til at holde fem terninger
                                         og ikke fire, fordi vi angiver hvor mange
                                         pladser der skal være i arrayet
                                         og ikke hvad arrayet tæller til 0, 1, 2, 3, 4

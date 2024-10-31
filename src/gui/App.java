@@ -2,8 +2,8 @@ package gui;
 
 import javafx.application.Application;
 
-public class YatzyApp {
+public class App {
     public static void main(String[] args) {
-        Application.launch(YatzyGui.class);
+        Application.launch(Gui.class);
     }
 }
